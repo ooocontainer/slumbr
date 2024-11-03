@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="slider">
+    <!-- Слайд 1 -->
+    <div class="slide" id="slide1" onclick="nextSlide(1)">
+        <h1 class="welcome-text">Доброе утро!<br>Давайте запишем<br>данные о вашем сне</h1>
+        <div class="image-placeholder" id="image"></div> <!-- Картинка -->
+    </div>
+
+    <!-- Слайд 2 -->
+    <div class="slide" id="slide2">
+        <h2 class="question-text">Сколько Вы спали сегодня ночью?</h2>
+        <div class="image-placeholder" id="imageSlide2"></div>
+        <div class="slider-container">
+            <input type="range" min="1" max="12" value="6" class="sleep-slider" id="sleepHours">
+            <div class="slider-value" id="sleepValue">6</div>
+            <div class="slider-labels">
+                <span class="label">МАЛО</span>
+                <span class="label">МНОГО</span>
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSlide(2)">Далее</button>
+    </div>
+
+    <!-- Слайд 3 -->
+    <div class="slide" id="slide3">
+        <h2 class="question-text">Как Вы спали? <br> Оцените от 1 до 10.</h2>
+        <div class="image-placeholder" id="imageSlide3"></div>
+        <div class="slider-container">
+            <input type="range" min="1" max="10" value="5" class="sleep-slider" id="sleepQuality">
+            <div class="slider-value" id="qualityValue">5</div>
+            <div class="slider-labels">
+                <span class="label">БЕСПОКОЙНО</span>
+                <span class="label">КРЕПКО</span>
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSlide(3)">Далее</button>
+    </div>
+
+    <!-- Слайд 4 -->
+    <div class="slide" id="slide4">
+        <div class="small-luna"></div> <!-- Луна с анимацией -->
+        <h3>Ваш сон был <br> немного беспокойным.</h3>
+        <h4>Что могло повлиять на ваш сон?</h4>
+        <div class="frame-container-content">
+        <div class="frame-container-plus">
+            <div class="frame" onclick="toggleFrame(this)">Дневная активность</div>
+            <div class="frame" onclick="toggleFrame(this)">Медитация</div>
+            <div class="frame" onclick="toggleFrame(this)">Теплая ванная</div>
+            <div class="frame" onclick="toggleFrame(this)">Чтение</div>
+            <div class="frame" onclick="toggleFrame(this)">Питание</div>
+            <div class="frame" onclick="toggleFrame(this)">Комфортные условия</div>
+            <div class="frame" onclick="toggleFrame(this)">Ароматерапия</div>
+            <div class="frame" onclick="toggleFrame(this)">Прогулка с друзьями</div>
+            <div class="frame" onclick="toggleFrame(this)">Темная комната</div>
+            <div class="frame" onclick="toggleFrame(this)">Прохладная температура</div>
+        </div>
+        <div class="frame-container-mid">
+            <div class="frame" onclick="toggleFrame(this)">Легкий алкоголь</div>
+            <div class="frame" onclick="toggleFrame(this)">Короткий дневной сон</div>
+            <div class="frame" onclick="toggleFrame(this)">Спокойная музыка</div>
+            <div class="frame" onclick="toggleFrame(this)">Утренний душ</div>
+            <div class="frame" onclick="toggleFrame(this)">Вечерняя прогулка</div>
+        </div>
+            <div class="frame-container-minus">
+                <div class="frame" onclick="toggleFrame(this)">Стресс</div>
+                <div class="frame" onclick="toggleFrame(this)">Кофеин</div>
+                <div class="frame" onclick="toggleFrame(this)">Экран перед сном</div>
+                <div class="frame" onclick="toggleFrame(this)">Чрезмерный алкоголь</div>
+                <div class="frame" onclick="toggleFrame(this)">Сладкая еда</div>
+                <div class="frame" onclick="toggleFrame(this)">Шум</div>
+                <div class="frame" onclick="toggleFrame(this)">Жаркая комната</div>
+                <div class="frame" onclick="toggleFrame(this)">Частые пробуждения</div>
+                <div class="frame" onclick="toggleFrame(this)">Никотин</div>
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSlide(4)" style="bottom: -5px;">Далее</button>
+    </div>
+
+
+    <!-- Слайд 5 -->
+    <div class="slide" id="slide5">
+        <div class="overlay"></div>
+            <div class="end-slide5">
+            <h1>Записано &#x2714;</h1>
+            <h2>Оценка от Slumbr <br> скоро появится в боте.</h2>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

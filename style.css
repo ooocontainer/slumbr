@@ -1,0 +1,253 @@
+* {
+
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #2F3959 0%, #9EADE2 50%, #2F3959 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.slider {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+.slide {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+.slide.active {
+    display: block;
+}
+/*Анимация луны*/
+.image-placeholder {
+    width: 390px;
+    height: 390px;
+    background: url(images/luna.png);
+    background-size: contain;
+    background-position: center;
+    position: fixed;
+    left: 50%;
+    bottom: -195px;
+    transform: translateX(-50%);
+    animation: rotate 30s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.7)); /* Белое свечение */
+}
+.image-move {
+    animation: moveToCenter 0.5s forwards, resizeImage 0.5s forwards, rotate 30s linear infinite; /* добавляем rotate */
+}
+@keyframes rotate {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+@keyframes moveToCenter {
+    to {
+        left: 50%;
+        bottom: calc(50% - 100px); /* устанавливаем положение по центру */
+        transform: translate(-50%, 0);
+    }
+}
+@keyframes resizeImage {
+    to {
+        width: 250px;
+        height: 250px;
+    }
+}
+.stay-center {
+    width: 250px;
+    height: 250px;
+    position: fixed;
+    left: 50%;
+    bottom: calc(50% - 100px); /* Центрируем */
+    transform: translate(-50%, 0);
+    animation: rotate 30s linear infinite;
+}
+/*конец - Анимация луны*/
+.slider-container {
+    position: relative;
+    bottom: -360px;
+}
+/* Ползунок */
+.sleep-slider {
+    width: 100%;
+    height: 24px; /* Высота для самого ползунка */
+    -webkit-appearance: none; /* Убирает стандартный стиль в WebKit-браузерах */
+    background-color: #ddd; /* Цвет фона ползунка */
+    border-radius: 24px; /* Скругление краев */
+    filter: drop-shadow(1px 4px 6px gray);
+}
+.sleep-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px; /* Высота бегунка */
+    width: 24px; /* Ширина бегунка */
+    background-color: gray; /* Цвет бегунка */
+    border-radius: 50%; /* Делает бегунок круглым */
+    cursor: pointer;
+}
+.sleep-slider::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* Конец Ползунок */
+/* Анимация вращения для маленькой луны */
+.small-luna {
+    width: 150px;
+    height: 150px;
+    background: url(images/smallluna.png) no-repeat center center;
+    background-size: contain;
+    animation: rotateSmallLuna 30s linear infinite;
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -130px;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+}
+@keyframes rotateSmallLuna {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* Конец  Анимация вращения для маленькой луны */
+.slider-value {
+    position: absolute;
+    top: -30px;
+    left: calc(50% - 12px);
+    font-size: 18px;
+    filter: drop-shadow(1px 4px 6px gray);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    filter: drop-shadow(1px 4px 6px gray);
+}
+.next-btn {
+    width: 100%;
+    height: 48px;
+    margin-top: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    position: relative;
+    bottom: -363px;
+    border-radius: 25px;
+    font-size: 20px;
+    filter: drop-shadow(1px 4px 6px gray);
+    color: black;
+}
+.next-btn:hover {
+    background-color: gray;
+    color: white;
+
+}
+.frame-container-content{
+
+}
+.frame-container-plus, .frame-container-mid, .frame-container-minus {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+
+}
+.frame {
+    background-color: rgba(217, 217, 217, 0.2); /* Прозрачный фон */
+    color: white;
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 0 0 4px;
+    text-align: center;
+    width: auto; /* Адаптация ширины по содержимому */
+    min-width: 80px; /* Минимальная ширина для красивого отображения */
+    margin: 5px; /* Отступ между фреймами */
+}
+.frame.active {
+    background-color: #D9D9D9; /* Меняем цвет фона при активации */
+    color: #606C96; /* Меняем цвет текста при активации */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* затемнение фона */
+    z-index: 1;
+}
+
+.end-slide5 {
+    position: relative;
+    z-index: 2; /* Размещаем поверх .overlay */
+    text-align: center;
+    color: white; /* Белый цвет текста */
+    padding: 20px;
+}
+
+.end-slide5 h1, .end-slide5 h2 {
+    color: white;
+    filter: drop-shadow(1px 4px 6px gray);
+}
+
+.end-slide5 h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.end-slide5 h2 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+
+
+/* Стиль для текста слайдов */
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.13px;
+    text-align: center;
+    margin-top: -30%; /* Отступ сверху для первого слайда */
+}
+h2{
+    color: white;
+}
+h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 5px 0 0 0;
+    filter: drop-shadow(1px 4px 6px gray);
+}
+h4 {
+    text-align: left;
+    font-weight: 600;
+    margin: 10px 0 10px 5px;
+    text-decoration-line: underline ;
+    text-decoration-thickness: 2px;
+}
+.question-text {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.13px;
+    text-align: center;
+    margin-top: -70%;
+    filter: drop-shadow(1px 4px 6px gray);
+}
