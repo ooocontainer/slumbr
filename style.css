@@ -162,21 +162,21 @@ body {
 .frame-container-plus, .frame-container-mid, .frame-container-minus {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
 }
 .frame {
-    background-color: rgba(217, 217, 217, 0.2); /* Прозрачный фон */
+    background-color: rgba(217, 217, 217, 0.2);
     color: white;
     border: 1px solid #aaa;
     border-radius: 15px;
     cursor: pointer;
     display: inline-block;
-    padding: 0 0 0 4px;
+    padding: 0px 5px 0px 4px;
     text-align: center;
-    width: auto; /* Адаптация ширины по содержимому */
-    min-width: 80px; /* Минимальная ширина для красивого отображения */
-    margin: 5px; /* Отступ между фреймами */
+    width: auto;
+    min-width: 80px;
+    margin: 4px;
 }
 .frame.active {
     background-color: #D9D9D9; /* Меняем цвет фона при активации */
